@@ -1,0 +1,23 @@
+<section class="todo-list-app">
+  <section class="main" *ngIf="todos.length > 0">
+    <ul class="todos">
+      <li *ngFor="let todo of todos">
+        <div class="todo">
+          <label class="todo-title">{{todo.title}} </label>
+          <a class="btn show" routerLink="/todos/{{todo.id}}">Ver item</a>
+          <button class="btn destroy" (click)="removeTodo(todo)"> Remover </button>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section class="form new-todo">
+    <div class="header">
+      <h1>Adicionar novo todo</h1>
+      <div class="form-inline">
+        <input placeholder="Digite uma nova tarefa aqui" autofocus="" [(ngModel)]="newTodo.title"
+               (keyup.enter)="addTodo()">
+        <button (click)="addTodo()">Salvar</button>
+      </div>
+    </div>
+  </section>
+</section>
